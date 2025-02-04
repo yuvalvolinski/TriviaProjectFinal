@@ -14,6 +14,27 @@
       "runOptions": {
         "runOn": "folderOpen"
       }
+    },
+    {
+      "label": "Open New Terminal",
+      "type": "shell",
+      "command": "echo 'New Terminal Tab'; exec $SHELL",
+      "presentation": {
+        "reveal": "always",
+        "focus": true,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "Watch TS & Focus New Tab",
+      "dependsOn": [
+        "Watch TS",
+        "Open New Terminal"
+      ],
+      "dependsOrder": "sequence",
+      "runOptions": {
+        "runOn": "folderOpen"
+      }
     }
   ]
 }
