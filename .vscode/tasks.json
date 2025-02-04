@@ -10,9 +10,6 @@
         "reveal": "never",
         "focus": false,
         "panel": "dedicated",
-      },
-      "runOptions": {
-        "runOn": "folderOpen"
       }
     },
     {
