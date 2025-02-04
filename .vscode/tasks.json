@@ -6,21 +6,38 @@
       "type": "shell",
       "command": "tsc --watch",
       "isBackground": true,
+      "problemMatcher": [
+        {
+          "pattern": {
+            "regexp": ".*",
+            "file": 1,
+            "location": 2,
+            "message": 3
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "Starting compilation",
+            "endsPattern": "Watching for file changes."
+          }
+        }
+      ],
       "presentation": {
-        "reveal": "never",
-        "focus": false,
-        "panel": "dedicated",
+        "reveal": "always",
+        "focus": true,
+        "panel": "dedicated"
       }
     },
     {
       "label": "Open New Terminal",
       "type": "shell",
-      "command": "echo 'New Terminal Tab'; exec $SHELL",
+      "command": "exec $SHELL",
       "presentation": {
         "reveal": "always",
         "focus": true,
         "panel": "new"
-      }
+      },
+      "isBackground": true,
+      "problemMatcher": []
     },
     {
       "label": "Watch TS & Focus New Tab",
