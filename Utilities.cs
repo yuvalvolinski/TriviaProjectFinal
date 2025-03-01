@@ -254,13 +254,19 @@ public class Response
 public class DbBase : DbContext
 {
   readonly string _name;
+  readonly bool _isNewlyCreated;
 
   public DbBase(string name) : base()
   {
     _name = name;
 
-    Database.EnsureCreated();
+    _isNewlyCreated = Database.EnsureCreated();
     Database.ExecuteSqlRaw("PRAGMA journal_mode = DELETE;");
+  }
+
+  public bool IsNewlyCreated()
+  {
+    return _isNewlyCreated;
   }
 
   protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
