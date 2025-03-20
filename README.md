@@ -12,7 +12,11 @@ bun add -g typescript
 netsh http add urlacl url=http://*:5000/ user=Everyone
 ```
 
-# הרצת הפרוייקט
+## יצירת פרוייקט חדש
+- בחלק העליון של העמוד, לחצו על הכפתור הירוק עליו כתוב "Use this template" ואז על "Create a new Repository", בחרו שם לפרוייקט ולחצו "Create repository".
+- נשבט את הפרוייקט החדש שיצרנו בכך שנעתיק את כתובת האתר שלו, נפתח את ה-Command Pallate ב-VS Code, נבחר באפשרות "git: Clone" ונדביק את הכתובת שהעתקנו.
+
+## הרצת הפרוייקט
 פתחו את הפרוייקט ב-VS Code והריצו בעזרת הפקודה:
 ```
 dotnet run
