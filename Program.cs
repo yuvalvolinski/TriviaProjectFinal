@@ -11,7 +11,7 @@ class Program
     var server = new Server(port);
 
     Console.WriteLine("The server is running");
-    Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/index.html");
+    Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/main.html");
 
     var database = new Database();
 
