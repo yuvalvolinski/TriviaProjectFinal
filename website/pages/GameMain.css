@@ -1,0 +1,58 @@
+body {
+    background-image: url('TriviaVOforGame.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: column;    
+    justify-content: center;  
+    align-items: center;      
+    height: 100vh;            
+    margin: 0;                
+  }
+
+  .glow-button {
+    background-color: transparent;
+    border: 2px solid transparent;
+    border-radius: 25px;
+    color: white;
+    font-size: 20px;
+    font-family: Arial, sans-serif;
+    padding: 15px 30px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease-in-out;
+    z-index: 1; /* הכפתור תמיד מעל האנימציה */
+}
+
+.glow-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* רוחב מלא של הכפתור */
+    height: 100%; /* גובה מלא של הכפתור */
+    background: linear-gradient(90deg, #ff4500, #ff6347); /* אדום וכתום */
+    background-size: 200% 100%; /* הגרדיאנט יכסה פי 2 יותר */
+    animation: glow 3s infinite linear; /* תנועה מתמשכת של הצבעים */
+    z-index: -1; /* האנימציה מאחורי הכפתור */
+}
+
+.glow-button:hover {
+    color: #fff;
+    border-color: #fff;
+}
+
+@keyframes glow {
+    0% {
+        background-position: 100% 0; /* התחלת התנועה בצד ימין */
+    }
+    50% {
+        background-position: -100% 0; /* הגרדיאנט ינוע לצד שמאל */
+    }
+    100% {
+        background-position: 100% 0; /* יחזור להתחלה */
+    }
+}
