@@ -47,13 +47,13 @@ body {
   
   @keyframes glow {
     0% {
-      background-position: 100% 0; /* התחלת התנועה בצד ימין */
+      background-position: 100% 0; 
     }
     50% {
-      background-position: -100% 0; /* הגרדיאנט ינוע לצד שמאל */
+      background-position: -100% 0; 
     }
     100% {
-      background-position: 100% 0; /* יחזור להתחלה */
+      background-position: 100% 0; 
     }
   }
   
