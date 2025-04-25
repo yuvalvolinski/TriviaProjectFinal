@@ -1,6 +1,7 @@
 let bLogOut = document.getElementById("bLogOut")!;
 let bRules = document.getElementById("bRules")!;
 let bstart = document.getElementById("bstart")!;
+let Welc_text = document.getElementById("Welc_text")!;
 
 
 
@@ -16,4 +17,14 @@ bRules.onclick = function () {
 bstart.onclick = function () {
    window.location.href = "Game.html"
 }
+
+
+let NickName = localStorage.getItem("NickName");
+let UserId = localStorage.getItem("UserId");
+
+Welc_text.innerText = "Welcome Dear, "  +  NickName;
+
+console.log( "UserId= " + UserId);
+
+
 

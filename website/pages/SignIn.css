@@ -16,28 +16,28 @@ body {
     border: 2px solid transparent;
     border-radius: 25px;
     color: white;
-    font-size: 16px; /* גודל כפתור קטן יותר */
+    font-size: 16px; 
     font-family: Arial, sans-serif;
-    padding: 10px 20px; /* padding קטן יותר */
+    padding: 10px 20px; 
     cursor: pointer;
     outline: none;
     position: relative;
     overflow: hidden;
     transition: all 0.4s ease-in-out;
-    z-index: 1; /* הכפתור תמיד מעל האנימציה */
+    z-index: 1; 
   }
   
-  .glow-button::before {
+  .glow-button::before{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%; /* רוחב מלא של הכפתור */
-    height: 100%; /* גובה מלא של הכפתור */
-    background: linear-gradient(90deg, #ffffff, #ffeb3b); /* לבן וצהוב בהיר */
-    background-size: 200% 100%; /* הגרדיאנט יכסה פי 2 יותר */
-    animation: glow 3s infinite linear; /* תנועה מתמשכת של הצבעים */
-    z-index: -1; /* האנימציה מאחורי הכפתור */
+    width: 100%; 
+    height: 100%; 
+    background: linear-gradient(90deg, #ffffff, #ffeb3b); 
+    background-size: 200% 100%; 
+    animation: glow 3s infinite linear; 
+    z-index: -1; 
   }
   
   .glow-button:hover {
@@ -47,13 +47,13 @@ body {
   
   @keyframes glow {
     0% {
-      background-position: 100% 0; /* התחלת התנועה בצד ימין */
+      background-position: 100% 0; 
     }
     50% {
-      background-position: -100% 0; /* הגרדיאנט ינוע לצד שמאל */
+      background-position: -100% 0; 
     }
     100% {
-      background-position: 100% 0; /* יחזור להתחלה */
+      background-position: 100% 0; 
     }
   }
   

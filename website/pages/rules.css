@@ -9,42 +9,45 @@ body {
     align-items: center;      
     height: 100vh;            
     margin: 0.5; 
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    min-height: 100vh;
+    margin: 0;
+
     
 
   }
 
-  body {
-    margin: 0;
-    padding: 0;
-    height: 100vh;
+   
+
+.rules-container {
+    background-color: #34495e;
+    color: #ecf0f1;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    width: 80%; 
+    max-width: 600px; 
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
+    flex-direction: column; 
+    align-items: center; 
 }
 
-#image {
-  display: block;
-  margin: 0 auto; /* ממקם את התמונה במרכז */
-  width: 70%; /* התמונה תהיה בגודל של 70% מהגודל המקורי */
-  max-width: 100%; /* לא תצא מגבולות המסך */
-  border: 2px solid #003366; /* מסגרת דקיקה בצבע כחול כהה */
-  transform: scale(0.7); /* מקטין את התמונה ב-30% */
+h2 {
+    color: #f39c12;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%; 
 }
 
-#bBack {
-  position: fixed;
-  bottom: 7px;
-  left: 50%;
-  transform: translateX(-50%);
-  padding: 20px 40px;
-  font-size: 18px;
-  background-color: gray;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
+.rule-item {
+    margin-bottom: 15px;
+    line-height: 1.6;
+    width: 90%; 
+    text-align: right; 
 }
-
-
 
 
