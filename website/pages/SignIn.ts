@@ -14,7 +14,6 @@ b_SignIn.onclick = async function(){
     result = await send("SignIn",[ nick_name, user_password]) ;
 
 
-
     if(result == "exists"){
         alert("משתמש זה קיים, אנא  הזן משתמש אחר")
 

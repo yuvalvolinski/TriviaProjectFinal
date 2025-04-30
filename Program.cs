@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.SqlTypes;
 using System.Runtime.CompilerServices;
 using Microsoft.EntityFrameworkCore;
 
@@ -65,6 +66,7 @@ class Program
             {
               var userId = Guid.NewGuid().ToString();
               database.Users.Add(new User(userId, NickName, Password));
+              database.SaveChanges();
               response.Send(userId);
               
           
@@ -97,8 +99,23 @@ class Program
 
           
         }
+        else if(request.Path == "StartGame"){
+
+             string userId = request.GetBody<string>();
+
+ 
+             Console.WriteLine("UserId:" + userId);
+               var gameId = Guid.NewGuid().ToString();
+              database.Games.Add(new Game(gameId, userId,0,0,0,""));
+              database.SaveChanges();
+              response.Send(gameId);
+
+
+
+
         }
-        catch (Exception exception)
+        }
+        catch (Exception exception) 
         {
           Log.WriteException(exception);
         }
@@ -159,7 +176,7 @@ class Question(string quest, string ans1, string ans2, string ans3, string ans4,
 
 }
 
-class Game(string gameId, string userId, int gameScore, int totalAnswers, int totalCorrectAnswers)
+class Game(string gameId, string userId, int gameScore, int totalAnswers, int totalCorrectAnswers, string usedQuestions)
 {
   [Key] public string GameId { get; set; } = gameId;
   public string UserId { get; set; } = userId;
@@ -168,6 +185,8 @@ class Game(string gameId, string userId, int gameScore, int totalAnswers, int to
   public int GameScore { get; set; } = gameScore;
   public int TotalAnswers { get; set; } = totalAnswers;
    public int TotalCorrectAnswers { get; set; } =  totalCorrectAnswers;
+  public string UsedQuestions { get; set; } =  usedQuestions;
+
 
 
 }

@@ -1,3 +1,4 @@
+import { send } from "../utilities";
 let bLogOut = document.getElementById("bLogOut")!;
 let bRules = document.getElementById("bRules")!;
 let bstart = document.getElementById("bstart")!;
