@@ -103,14 +103,59 @@ class Program
 
              string userId = request.GetBody<string>();
 
- 
-             Console.WriteLine("UserId:" + userId);
+
                var gameId = Guid.NewGuid().ToString();
               database.Games.Add(new Game(gameId, userId,0,0,0,""));
               database.SaveChanges();
               response.Send(gameId);
 
 
+
+
+        }
+        else if(request.Path == "GetQuestion"){
+            string gameId = request.GetBody<string>();
+            int currentQuestion;
+            string choseGameId = "";
+
+            var game = database.Games.Find(gameId);
+
+            string gameUsedQuestions = game?.UsedQuestions!;
+            List<int> usedQuestions = gameUsedQuestions
+                                      .Split(',')
+                                      .Select(int.Parse)
+                                      .ToList();
+
+            List<Question> questions = new List<Question>();
+            List<Question> availableQuestions = new List<Question>();
+
+
+            questions = database.Questions.ToList();
+
+            for(int i = 0; i<questions.Count; i++){
+              currentQuestion = questions[i].Id;
+
+              if(!usedQuestions.Contains(currentQuestion)){
+                availableQuestions.Add(questions[i]);
+              }
+
+
+            }
+
+            int randomQuestion;
+
+            Random random = new Random();
+             randomQuestion = random.Next(0,availableQuestions.Count-1);
+             choseGameId = availableQuestions[randomQuestion].Id.ToString();
+
+             if(gameUsedQuestions != ""){
+              gameUsedQuestions = gameUsedQuestions + ",";
+        
+             }
+             gameUsedQuestions = gameUsedQuestions + choseGameId;
+             game.UsedQuestions =  gameUsedQuestions;
+             database.SaveChanges();
+             response.Send(availableQuestions[randomQuestion]);        
 
 
         }
