@@ -41,7 +41,7 @@ class Program
       {
         try
         {
-          
+
           if (request.Path == "SignIn")
           {
             (string NickName, string Password) = request.GetBody<(string, string)>();
@@ -68,9 +68,9 @@ class Program
               database.Users.Add(new User(userId, NickName, Password));
               database.SaveChanges();
               response.Send(userId);
-              
-          
-          
+
+
+
 
             }
           }
@@ -78,42 +78,46 @@ class Program
           {
             (string NickName, string Password) = request.GetBody<(string, string)>();
 
-            
+
             var user = database.Users
-  
-              .FirstOrDefault(user => user.Username.ToLower()== NickName.ToLower() && user.Password == Password);
 
-          
+              .FirstOrDefault(user => user.Username.ToLower() == NickName.ToLower() && user.Password == Password);
 
-            if(user != null){
+
+
+            if (user != null)
+            {
               response.Send(user?.Id);
-              
-            
+
+
             }
-            else{
+            else
+            {
               response.Send("Error");
               response.SetStatusCode(401);
             }
 
-           
-
-          
-        }
-        else if(request.Path == "StartGame"){
-
-             string userId = request.GetBody<string>();
-
-
-               var gameId = Guid.NewGuid().ToString();
-              database.Games.Add(new Game(gameId, userId,0,0,0,""));
-              database.SaveChanges();
-              response.Send(gameId);
 
 
 
+          }
+          else if (request.Path == "StartGame")
+          {
 
-        }
-        else if(request.Path == "GetQuestion"){
+            string userId = request.GetBody<string>();
+
+
+            var gameId = Guid.NewGuid().ToString();
+            database.Games.Add(new Game(gameId, userId, 0, 0, 0, ""));
+            database.SaveChanges();
+            response.Send(gameId);
+
+
+
+
+          }
+          else if (request.Path == "GetQuestion")
+          {
             string gameId = request.GetBody<string>();
             int currentQuestion;
             string choseGameId = "";
@@ -132,10 +136,12 @@ class Program
 
             questions = database.Questions.ToList();
 
-            for(int i = 0; i<questions.Count; i++){
+            for (int i = 0; i < questions.Count; i++)
+            {
               currentQuestion = questions[i].Id;
 
-              if(!usedQuestions.Contains(currentQuestion)){
+              if (!usedQuestions.Contains(currentQuestion))
+              {
                 availableQuestions.Add(questions[i]);
               }
 
@@ -145,22 +151,23 @@ class Program
             int randomQuestion;
 
             Random random = new Random();
-             randomQuestion = random.Next(0,availableQuestions.Count-1);
-             choseGameId = availableQuestions[randomQuestion].Id.ToString();
+            randomQuestion = random.Next(0, availableQuestions.Count);
+            choseGameId = availableQuestions[randomQuestion].Id.ToString();
 
-             if(gameUsedQuestions != ""){
+            if (gameUsedQuestions != "")
+            {
               gameUsedQuestions = gameUsedQuestions + ",";
-        
-             }
-             gameUsedQuestions = gameUsedQuestions + choseGameId;
-             game.UsedQuestions =  gameUsedQuestions;
-             database.SaveChanges();
-             response.Send(availableQuestions[randomQuestion]);        
+
+            }
+            gameUsedQuestions = gameUsedQuestions + choseGameId;
+            game.UsedQuestions = gameUsedQuestions;
+            database.SaveChanges();
+            response.Send(availableQuestions[randomQuestion]);
 
 
+          }
         }
-        }
-        catch (Exception exception) 
+        catch (Exception exception)
         {
           Log.WriteException(exception);
         }
@@ -170,9 +177,10 @@ class Program
     }
   }
 
- private static void FillQuestions(Database database){
+  private static void FillQuestions(Database database)
+  {
 
-  
+
     if (!database.Questions.Any())
     {
       database.Questions.Add(new Question("מהי בירת איטליה?", "מילאנו", "רומא", "נאפולי", "פירנצה", 2));
@@ -189,7 +197,7 @@ class Program
       database.SaveChanges();
     }
 
- }
+  }
 }
 
 
@@ -211,13 +219,13 @@ class User(string id, string username, string password)
 
 class Question(string quest, string ans1, string ans2, string ans3, string ans4, int ansCorrect)
 {
-      [Key] public int Id { get; set; } = default!;
-      public string Quest { get; set; } =  quest;
-      public string Ans1 { get; set; } = ans1;
-      public string Ans2 { get; set; } = ans2;
-      public string Ans3 { get; set; } = ans3;
-      public string Ans4{ get; set; } = ans4;
-      public int AnsCorrect { get; set; } = ansCorrect;
+  [Key] public int Id { get; set; } = default!;
+  public string Quest { get; set; } = quest;
+  public string Ans1 { get; set; } = ans1;
+  public string Ans2 { get; set; } = ans2;
+  public string Ans3 { get; set; } = ans3;
+  public string Ans4 { get; set; } = ans4;
+  public int AnsCorrect { get; set; } = ansCorrect;
 
 }
 
@@ -225,12 +233,12 @@ class Game(string gameId, string userId, int gameScore, int totalAnswers, int to
 {
   [Key] public string GameId { get; set; } = gameId;
   public string UserId { get; set; } = userId;
- [ForeignKey("UserId")] public User User { get; set; } = default!; 
+  [ForeignKey("UserId")] public User User { get; set; } = default!;
 
   public int GameScore { get; set; } = gameScore;
   public int TotalAnswers { get; set; } = totalAnswers;
-   public int TotalCorrectAnswers { get; set; } =  totalCorrectAnswers;
-  public string UsedQuestions { get; set; } =  usedQuestions;
+  public int TotalCorrectAnswers { get; set; } = totalCorrectAnswers;
+  public string UsedQuestions { get; set; } = usedQuestions;
 
 
 
