@@ -123,12 +123,28 @@ class Program
             string choseGameId = "";
 
             var game = database.Games.Find(gameId);
+            if(game == null) {
+              Console.WriteLine("game is null" );
+            }
+            else {
+              Console.WriteLine("game" + game);
+            }
+ 
 
             string gameUsedQuestions = game?.UsedQuestions!;
-            List<int> usedQuestions = gameUsedQuestions
-                                      .Split(',')
-                                      .Select(int.Parse)
-                                      .ToList();
+            List<int> usedQuestions = new List<int>();
+
+            if(gameUsedQuestions != null && gameUsedQuestions != "") {
+               usedQuestions = gameUsedQuestions
+                .Split(',', StringSplitOptions.RemoveEmptyEntries)
+                .Select(int.Parse)
+                .ToList();
+
+            }
+            else {
+              gameUsedQuestions = "";
+            }
+           
 
             List<Question> questions = new List<Question>();
             List<Question> availableQuestions = new List<Question>();
@@ -191,16 +207,14 @@ class Program
       database.Questions.Add(new Question("מהי המדינה שעיר בירתה ביירות?", "תימן", "לבנון", "סוריה", "איראן", 2));
       database.Questions.Add(new Question("באיזו עיר התקיים אירוויזיון 2024?", "האג", "מאלמו", "סטוקהולם", "ברצלונה", 2)); // אירוויזיון 2024
 
-
-
      database.Questions.Add(new Question("מי המציא את פייסבוק?", "סטיב ג'ובס", "אילון מאסק", "מארק צוקרברג", "ביל גייטס", 3)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי שיחק את הדמות של 'הארי פוטר' בסדרת הסרטים?", "אלייז'ה ווד", "דניאל רדקליף", "רופרט גרינט", "טום הולנד", 2)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי היה דובר צהל בשבעב באוקטובר?", "בנימין נתניהו", "בני גנץ ", "דניאל הגרי", "רוני גמזו", 3)); // אנשים (אישיות)
-     database.Questions.Add(new Question("מי נחשב לראפר המצליח ביותר בכל הזמנים?", "אמינם", "קניה ווסט", "דרייק", "טופאק", 1)); // אנשים (אישיות)
-     database.Questions.Add(new Question("מי היה ראש ממשלת ארצות הברית בשנת 2023", "ביידן", "אובמה", "טראמפ", "קלינטון", 1)); // אנשים (אישיות)
+     database.Questions.Add(new Question("מי נחשב לראפר המצליח ביותר בכל הזמנים?", "אמינם", "קניה ווסט", "דרייק", "טופאק", 1)); 
+     database.Questions.Add(new Question("מי היה ראש ממשלת ארצות הברית בשנת 2023", "ביידן", "אובמה", "טראמפ", "קלינטון", 1)); 
      database.Questions.Add(new Question("באיזה ערוץ משדרת יונית לוי?", "כאן 11", "ערוץ 13", "ערוץ 12", "ערוץ 14", 3));
      database.Questions.Add(new Question("מה שם הלהקה הבריטית המפורסמת שהורכבה מ-4 חברים: פול, ג'ון, ג'ורג' ורינגו?", "הביטלס", "הסטונס", "קווין", "הפלאטס", 1));
-     database.Questions.Add(new Question("מי ייצג את ישראל באירוויזיון 2024?", "עדן גולן", "נועה קירל", "מאיה בוסקילה", "יונתן כהן", 1)); // ישראל באירוויזיון 2024
+     database.Questions.Add(new Question("מי ייצג את ישראל באירוויזיון 2024?", "עדן גולן", "נועה קירל", "מאיה בוסקילה", "יונתן כהן", 1)); 
      database.Questions.Add(new Question("מי היה הראפר שהוציא את האלבום 'The Marshall Mathers LP'?", "אימינם", "אף תשובה אינה נכונה ", "טופאק שאקור", "קנדריק לאמאר", 1));
      database.Questions.Add(new Question("מי היה ממציא הנורה החשמלית?", "תומס אדיסון", "ניקולה טסלה", "אלכסנדר גרהם בל", "מייקל פאראדיי", 1));
      database.Questions.Add(new Question("מי היה השחקן הראשי בסרט 'איירון מן'?", "כריס אוונס", "רוברט דאוני ג'וניור", "כריס המסוורת'", "סקארלט ג'והנסון", 2));
@@ -210,15 +224,10 @@ class Program
      database.Questions.Add(new Question("איזה מותג מייצר את מכשירי הטלפון הנייד 'אייפון'?", "סמסונג", "נוקיה", "אפל", "LG", 3));
      database.Questions.Add(new Question("איזה מותג הוא המוביל בעולם בתחום המשקאות הקלים?", "פפסי", "קוקה קולה", "הובס", "7 אפ", 2));
      database.Questions.Add(new Question("איזה מותג מייצר את הדגם 'פוקוס'?", "פולקסווגן", "פיאט", "פיג'ו", "פורד", 4));
+
     
 
 
-
-
-
-
-
-     
 
 
 

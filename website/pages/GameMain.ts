@@ -16,6 +16,9 @@ bRules.onclick = function () {
 }
 
 bstart.onclick = function () {
+   if (localStorage.getItem("GameId") !== null) {
+      localStorage.removeItem("GameId");
+    }
    window.location.href = "Game.html"
 }
 

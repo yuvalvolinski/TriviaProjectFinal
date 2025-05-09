@@ -1,5 +1,5 @@
 body {
-    background-image: url('Trivia_GameP.jpg');
+    background-image: url('Trivia_GameP.png');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -10,3 +10,72 @@ body {
     height: 100vh;            
     margin: 0;                
   }
+
+  body {
+    background-image: url('Trivia_GameP.png'); /* ודא שהשם נכון */
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    margin: 0;
+    height: 100vh;
+    direction: rtl;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+  }
+  
+  .answer {
+    position: absolute;
+    width: 24%; /* הוגדל מ-22% */
+    padding: 1em 0;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+  }
+  
+  .answer.blue {
+    top: 49%; /* היה 46% */
+    left: 22%;
+    background-color: rgba(0, 153, 255, 0.6);
+    border: 2px solid #00ccff;
+  }
+  
+  .answer.green {
+    top: 49%; /* היה 46% */
+    left: 56%;
+    background-color: rgba(0, 255, 102, 0.6);
+    border: 2px solid #00ff66;
+  }
+  
+  .answer.red {
+    top: 67%; /* היה 61% */
+    left: 22%;
+    background-color: rgba(255, 51, 51, 0.6);
+    border: 2px solid #ff3333;
+  }
+  
+  .answer.yellow {
+    top: 67%; /* היה 61% */
+    left: 56%;
+    background-color: rgba(255, 255, 0, 0.6);
+    border: 2px solid #ffff00;
+  }
+
+  .question {
+    position: absolute;
+    top: 25%; /* ממקם בגובה המסגרת הלבנה */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  
