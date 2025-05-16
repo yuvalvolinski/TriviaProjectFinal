@@ -28,15 +28,29 @@ body {
   }
   
   .answer {
-    position: absolute;
-    width: 24%; /* הוגדל מ-22% */
-    padding: 1em 0;
-    text-align: center;
-    font-size: 1.1em;
-    font-weight: bold;
-    color: white;
-    border-radius: 10px;
-  }
+  position: absolute;
+  width: 24%;
+  padding: 1em 0;
+  text-align: center;
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer; /* הופך את האלמנט ל"לחיץ" */
+  transition: transform 0.2s, opacity 0.2s;
+}
+
+/* אפקט ריחוף */
+.answer:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* אפקט לחיצה */
+.answer:active {
+  transform: scale(0.98);
+}
+
   
   .answer.blue {
     top: 49%; /* היה 46% */
@@ -78,4 +92,17 @@ body {
     color: white;
   }
   
+  #timer {
+  position: fixed;
+  top: 50px;
+  right: 140px;
+  font-size: 48px;
+  font-weight: bold;
+  color: white;
+  background-color: #333;
+  padding: 10px 20px;
+  border-radius: 10px;
+  z-index: 1000;
+}
+
   

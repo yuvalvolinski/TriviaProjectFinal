@@ -177,10 +177,42 @@ class Program
             }
             gameUsedQuestions = gameUsedQuestions + choseGameId;
             game.UsedQuestions = gameUsedQuestions;
-            database.SaveChanges();
-            response.Send(availableQuestions[randomQuestion]);
+            database.SaveChanges();            
 
 
+            var questionToSend = new Question(
+                availableQuestions[randomQuestion].Quest,
+                availableQuestions[randomQuestion].Ans1,
+                availableQuestions[randomQuestion].Ans2,
+                availableQuestions[randomQuestion].Ans3,
+                availableQuestions[randomQuestion].Ans4,
+                -1 
+            );       
+
+            response.Send(questionToSend);
+
+
+          }
+          else if (request.Path == "CheckAnswer")
+          {
+              (string gameId, int userAns) = request.GetBody<(string, int)>();
+
+              var game = database.Games.Find(gameId);
+
+              string gameUsedQuestions = game?.UsedQuestions!;
+              string [] arrUsedQuestions = gameUsedQuestions.Split(",");
+              int lastQuestion = int.Parse (arrUsedQuestions[arrUsedQuestions.Length-1]);
+
+               var ans = database.Questions.Find(lastQuestion);
+               int correctAns = ans!.AnsCorrect!;
+
+               response.Send(correctAns);
+
+
+
+
+
+            
           }
         }
         catch (Exception exception)
