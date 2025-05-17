@@ -21,6 +21,7 @@ let ans3 = document.getElementById("ans3") as HTMLDivElement;
 let ans4 = document.getElementById("ans4") as HTMLDivElement;
 
 let timeLeft = 120; 
+let lastAnsTime = 120; 
 const timerElement = document.getElementById("timer") as HTMLDivElement;
 
 
@@ -85,8 +86,37 @@ async function  getQuestion()  {
 
 
 async function  checkAnswer(ans: number)  {
-      let correctAns = await send("CheckAnswer", [localStorage.getItem("GameId"), ans] );
-      alert('User ans:' + ans + ', Correct ans' + correctAns);
+
+      let ansTime = lastAnsTime - timeLeft;
+      lastAnsTime = timeLeft;
+
+      console.log('ansTime', ansTime)
+  
+      let correctAns = await send("CheckAnswer", [localStorage.getItem("GameId"), ans, ansTime] );
+
+      if(correctAns === 1){
+        ans1.innerText = ans1.innerText + " ✅";
+      }
+      else if(correctAns === 2)
+      { 
+        ans2.innerText = ans2.innerText + " ✅";
+
+
+      }
+      else if(correctAns === 3)
+      {
+          ans3.innerText = ans3.innerText + " ✅";
+
+
+      }
+      else if(correctAns === 4)
+      {
+        ans4.innerText = ans4.innerText + " ✅";
+
+      }
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+
       getQuestion();
 }
 

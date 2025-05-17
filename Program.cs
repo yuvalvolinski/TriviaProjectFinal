@@ -195,9 +195,15 @@ class Program
           }
           else if (request.Path == "CheckAnswer")
           {
-              (string gameId, int userAns) = request.GetBody<(string, int)>();
+              (string gameId, int userAns, int ansTime) = request.GetBody<(string, int, int)>();
+
+            int ansScore = 0;
+            int totalScore;
+            bool ifCorrect = false;
+              
 
               var game = database.Games.Find(gameId);
+               totalScore = game.GameScore;
 
               string gameUsedQuestions = game?.UsedQuestions!;
               string [] arrUsedQuestions = gameUsedQuestions.Split(",");
@@ -206,7 +212,40 @@ class Program
                var ans = database.Questions.Find(lastQuestion);
                int correctAns = ans!.AnsCorrect!;
 
-               response.Send(correctAns);
+            if (correctAns == userAns)
+            {
+              ifCorrect = true;
+              
+              if (ansTime < 3)
+              {
+                ansScore = 10;
+              }
+              else if (ansTime < 6 && ansTime > 3)
+              {
+                ansScore = 7;
+
+              }
+              else if (ansTime < 10 && ansTime > 6)
+              {
+                ansScore = 3;
+              }
+              else
+              {
+                ansScore = 1;
+              }
+               }
+
+            totalScore = totalScore + ansScore;
+            game.GameScore = totalScore;
+            game.TotalAnswers++;
+
+            if(ifCorrect){
+              game.TotalCorrectAnswers++;
+            }
+           
+            database.SaveChanges();     
+
+            response.Send(correctAns);
 
 
 
