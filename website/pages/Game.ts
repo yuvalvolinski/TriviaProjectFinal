@@ -41,6 +41,7 @@ const countdown = setInterval(() => {
   if (timeLeft <= 0) {
     clearInterval(countdown);
     timerElement.textContent = "הזמן תם!";
+    
   }
 
   timeLeft--;

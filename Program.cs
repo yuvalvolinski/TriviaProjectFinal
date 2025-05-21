@@ -280,7 +280,7 @@ class Program
 
      database.Questions.Add(new Question("מי המציא את פייסבוק?", "סטיב ג'ובס", "אילון מאסק", "מארק צוקרברג", "ביל גייטס", 3)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי שיחק את הדמות של 'הארי פוטר' בסדרת הסרטים?", "אלייז'ה ווד", "דניאל רדקליף", "רופרט גרינט", "טום הולנד", 2)); // אנשים (אישיות)
-     database.Questions.Add(new Question("מי היה דובר צהל בשבעב באוקטובר?", "בנימין נתניהו", "בני גנץ ", "דניאל הגרי", "רוני גמזו", 3)); // אנשים (אישיות)
+     database.Questions.Add(new Question("מי היה דובר צהל בשבעה באוקטובר?", "בנימין נתניהו", "בני גנץ ", "דניאל הגרי", "רוני גמזו", 3)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי נחשב לראפר המצליח ביותר בכל הזמנים?", "אמינם", "קניה ווסט", "דרייק", "טופאק", 1)); 
      database.Questions.Add(new Question("מי היה ראש ממשלת ארצות הברית בשנת 2023", "ביידן", "אובמה", "טראמפ", "קלינטון", 1)); 
      database.Questions.Add(new Question("באיזה ערוץ משדרת יונית לוי?", "כאן 11", "ערוץ 13", "ערוץ 12", "ערוץ 14", 3));
@@ -295,8 +295,34 @@ class Program
      database.Questions.Add(new Question("איזה מותג מייצר את מכשירי הטלפון הנייד 'אייפון'?", "סמסונג", "נוקיה", "אפל", "LG", 3));
      database.Questions.Add(new Question("איזה מותג הוא המוביל בעולם בתחום המשקאות הקלים?", "פפסי", "קוקה קולה", "הובס", "7 אפ", 2));
      database.Questions.Add(new Question("איזה מותג מייצר את הדגם 'פוקוס'?", "פולקסווגן", "פיאט", "פיג'ו", "פורד", 4));
+     database.Questions.Add(new Question("איזו חברה אינה קשורה להייטק?", "Intel", "IBM", "Fedex", "Microsoft", 3));
+     database.Questions.Add(new Question("איזו חברת תוכנה מפתחת את מערכת ההפעלה Windows?", "Apple", "Google", "IBM", "Microsoft", 4));
+     database.Questions.Add(new Question("איזה מותג מזוהה עם ספורט וציוד ספורטיבי?", "Lacoste", "Nike", "Gucci", "Ray-Ban", 2));
+     database.Questions.Add(new Question("איזה מותג משווק בעיקר מוצרי חלב בישראל?", "תנובה", "אסם", "עלית", "יוטבתה", 1));
+     database.Questions.Add(new Question("איזה מותג שייך לתחום הבשמים והקוסמטיקה?", "Chanel", "Samsung", "Canon", "Bosch", 1));
+     database.Questions.Add(new Question("איזו חברה מייצרת את Xbox?", "Apple", "Sony", "Microsoft", "Google", 3));
+     database.Questions.Add(new Question("מהו מותג האופנה המוזהה עם ראש תנין ירוק?", "Lacoste", "Nike", "Polo", "Fila", 1));
+     database.Questions.Add(new Question("מהו מותג השוקולד המזוהה עם עטיפה סגולה?", "Milka", "Lindt", "Ferrero", "Nestlé", 1));
+     database.Questions.Add(new Question("איזו חברה מייצרת את המשחקים Fortnite ו-Unreal Engine?", "Blizzard", "Epic Games", "Ubisoft", "Rockstar", 2));
 
-    
+    database.Questions.Add(new Question("כל התיכוניסטים לומדים מתמטיקה. יוסי תיכוניסט. מה נכון?", "יוסי לומד מתמטיקה", "יוסי לא לומד", "יוסי מלמד", "אין מספיק מידע", 1));
+    database.Questions.Add(new Question("בתור עומדים: דנה לפני יוסי, יוסי אחרי לירן. מי ראשון?", "יוסי", "דנה", "לירן", "לא ניתן לדעת", 3));
+    database.Questions.Add(new Question("אם 5 מחשבים צורכים 5 דקות לעיבוד, כמה זמן ל-1 מחשב?", "1 דקה", "5 דקות", "25 דקות", "לא ניתן לדעת", 2));
+    database.Questions.Add(new Question("אם V > 0: ", "V < -1", "V > 4", "V = -3", "V < 5 - 12", 2));
+    database.Questions.Add(new Question("המספר הבא בסדרה: 2, 4, 8, 16, ?", "18", "20", "32", "24", 3));
+    database.Questions.Add(new Question("אם צ'פופו שותה כל יום קולה שמחירה 7 שקלים. כמה הוא משלם כסף על קולה בשבוע?", " $ 18", "45 שקלים", " $ 41", "49 שקלים", 4));
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
