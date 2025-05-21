@@ -311,7 +311,24 @@ class Program
     database.Questions.Add(new Question("אם V > 0: ", "V < -1", "V > 4", "V = -3", "V < 5 - 12", 2));
     database.Questions.Add(new Question("המספר הבא בסדרה: 2, 4, 8, 16, ?", "18", "20", "32", "24", 3));
     database.Questions.Add(new Question("אם צ'פופו שותה כל יום קולה שמחירה 7 שקלים. כמה הוא משלם כסף על קולה בשבוע?", " $ 18", "45 שקלים", " $ 41", "49 שקלים", 4));
+    database.Questions.Add(new Question("א", " $ 18", "45 שקלים", " $ 41", "49 שקלים", 4));
 
+    database.Questions.Add(new Question("מהו יסוד כימי שמספרו האטומי הוא 1?", "חמצן", "מימן", "הליום", "פחמן", 2));
+    database.Questions.Add(new Question("מהי צורת המולקולה של מים?", "H2O", "HO2", "OH", "H3O", 1));
+    database.Questions.Add(new Question("איזו פלנטה קרובה ביותר לשמש?", "נוגה", "מרקורי", "מאדים", "כדור הארץ", 2));
+    database.Questions.Add(new Question("איזה גז חיוני לנשימה של בני אדם?", "פחמן דו-חמצני", "חנקן", "חמצן", "הליום", 3));
+    database.Questions.Add(new Question("מהו אברון התא שאחראי על הפקת אנרגיה?", "גרעין", "מיטוכונדריה", "ריבוזום", "ליזוזום", 2));
+    database.Questions.Add(new Question("מהו מצב הצבירה של מים בטמפרטורת החדר?", "מוצק", "נוזל", "גז", "פלזמה", 2));
+    database.Questions.Add(new Question("מהו כוכב הלכת הגדול ביותר במערכת השמש?", "שבתאי", "מאדים", "צדק", "נפטון", 3));
+    database.Questions.Add(new Question("איזו יחידה מודדת זרם חשמלי?", "ואט", "וולט", "אמפר", "אוהם", 3));
+    database.Questions.Add(new Question("מהו שם תהליך הפקת האנרגיה בצמחים?", "הטמעה", "פוטוסינתזה", "נשימה תאית", "תסיסה", 2));
+    database.Questions.Add(new Question("מהו השם של תהליך מעבר מנוזל לגז?", "עיבוי", "המראה", "קִפאון", "אידוי", 4));
+    database.Questions.Add(new Question("איזה איבר שולט על מערכת העצבים?", "לב", "ריאות", "כבד", "מוח", 4));
+    database.Questions.Add(new Question("איך נקרא השכבה החיצונית של כדור הארץ?", "מגמה", "קרום", "גרעין", "מעטפת", 2));
+    database.Questions.Add(new Question("מהו כוח המשיכה על פני כדור הארץ בקירוב?", "1 מ'/ש²", "4.9 מ'/ש²", "9.8 מ'/ש²", "12 מ'/ש²", 3));
+    database.Questions.Add(new Question("מה תפקיד תאי הדם הלבנים?", "נשיאת חמצן", "הגנה מפני מחלות", "קרישת דם", "הובלת סוכר", 2));
+    database.Questions.Add(new Question("איזו מדידה משתמשת ביחידת ניוטון?", "מהירות", "מסה", "כוח", "לחץ", 3));
+    database.Questions.Add(new Question("איזה סוג חומר אינו מוליך חשמל?", "מתכת", "פלסטיק", "מים", "אלומיניום", 2));
 
 
 
