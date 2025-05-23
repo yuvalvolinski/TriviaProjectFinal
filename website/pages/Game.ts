@@ -10,6 +10,14 @@ type Question = {
     AnsCorrect: number;
   }
 
+  type Game = {
+    GameScore: number;
+    TotalAnswers: number;
+    TotalCorrectAnswers: number;
+
+
+  }
+
 let NickName = localStorage.getItem("NickName");
 let UserId = localStorage.getItem("UserId");
 let gameId = null;
@@ -20,8 +28,8 @@ let ans2 = document.getElementById("ans2") as HTMLDivElement;
 let ans3 = document.getElementById("ans3") as HTMLDivElement;
 let ans4 = document.getElementById("ans4") as HTMLDivElement;
 
-let timeLeft = 120; 
-let lastAnsTime = 120; 
+let timeLeft = 30; 
+let lastAnsTime = 30; 
 const timerElement = document.getElementById("timer") as HTMLDivElement;
 
 
@@ -41,6 +49,8 @@ const countdown = setInterval(() => {
   if (timeLeft <= 0) {
     clearInterval(countdown);
     timerElement.textContent = "הזמן תם!";
+    getResult();
+
     
   }
 
@@ -71,6 +81,14 @@ if (localStorage.getItem("GameId") === null) {
 }
 
 getQuestion();
+
+
+async function getResult() {
+  let result = await send("GetResult", localStorage.getItem("GameId")) as Game ;
+  console.log("Gscore:" , result.GameScore)
+  
+}
+
 
 async function  getQuestion()  {
   let question = await send("GetQuestion", localStorage.getItem("GameId")) as Question ;

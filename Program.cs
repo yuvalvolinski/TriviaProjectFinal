@@ -123,28 +123,32 @@ class Program
             string choseGameId = "";
 
             var game = database.Games.Find(gameId);
-            if(game == null) {
-              Console.WriteLine("game is null" );
+            if (game == null)
+            {
+              Console.WriteLine("game is null");
             }
-            else {
+            else
+            {
               Console.WriteLine("game" + game);
             }
- 
+
 
             string gameUsedQuestions = game?.UsedQuestions!;
             List<int> usedQuestions = new List<int>();
 
-            if(gameUsedQuestions != null && gameUsedQuestions != "") {
-               usedQuestions = gameUsedQuestions
-                .Split(',', StringSplitOptions.RemoveEmptyEntries)
-                .Select(int.Parse)
-                .ToList();
+            if (gameUsedQuestions != null && gameUsedQuestions != "")
+            {
+              usedQuestions = gameUsedQuestions
+               .Split(',', StringSplitOptions.RemoveEmptyEntries)
+               .Select(int.Parse)
+               .ToList();
 
             }
-            else {
+            else
+            {
               gameUsedQuestions = "";
             }
-           
+
 
             List<Question> questions = new List<Question>();
             List<Question> availableQuestions = new List<Question>();
@@ -177,7 +181,7 @@ class Program
             }
             gameUsedQuestions = gameUsedQuestions + choseGameId;
             game.UsedQuestions = gameUsedQuestions;
-            database.SaveChanges();            
+            database.SaveChanges();
 
 
             var questionToSend = new Question(
@@ -186,8 +190,8 @@ class Program
                 availableQuestions[randomQuestion].Ans2,
                 availableQuestions[randomQuestion].Ans3,
                 availableQuestions[randomQuestion].Ans4,
-                -1 
-            );       
+                -1
+            );
 
             response.Send(questionToSend);
 
@@ -195,27 +199,27 @@ class Program
           }
           else if (request.Path == "CheckAnswer")
           {
-              (string gameId, int userAns, int ansTime) = request.GetBody<(string, int, int)>();
+            (string gameId, int userAns, int ansTime) = request.GetBody<(string, int, int)>();
 
             int ansScore = 0;
             int totalScore;
             bool ifCorrect = false;
-              
 
-              var game = database.Games.Find(gameId);
-               totalScore = game.GameScore;
 
-              string gameUsedQuestions = game?.UsedQuestions!;
-              string [] arrUsedQuestions = gameUsedQuestions.Split(",");
-              int lastQuestion = int.Parse (arrUsedQuestions[arrUsedQuestions.Length-1]);
+            var game = database.Games.Find(gameId);
+            totalScore = game.GameScore;
 
-               var ans = database.Questions.Find(lastQuestion);
-               int correctAns = ans!.AnsCorrect!;
+            string gameUsedQuestions = game?.UsedQuestions!;
+            string[] arrUsedQuestions = gameUsedQuestions.Split(",");
+            int lastQuestion = int.Parse(arrUsedQuestions[arrUsedQuestions.Length - 1]);
+
+            var ans = database.Questions.Find(lastQuestion);
+            int correctAns = ans!.AnsCorrect!;
 
             if (correctAns == userAns)
             {
               ifCorrect = true;
-              
+
               if (ansTime < 3)
               {
                 ansScore = 10;
@@ -233,17 +237,18 @@ class Program
               {
                 ansScore = 1;
               }
-               }
+            }
 
             totalScore = totalScore + ansScore;
             game.GameScore = totalScore;
             game.TotalAnswers++;
 
-            if(ifCorrect){
+            if (ifCorrect)
+            {
               game.TotalCorrectAnswers++;
             }
-           
-            database.SaveChanges();     
+
+            database.SaveChanges();
 
             response.Send(correctAns);
 
@@ -251,7 +256,20 @@ class Program
 
 
 
-            
+
+          }
+          else if (request.Path == "GetResult")
+          {
+            string gameId = request.GetBody<string>();
+
+            var game = database.Games.Find(gameId);
+             
+             response.Send(game);
+
+
+               
+
+
           }
         }
         catch (Exception exception)
@@ -329,13 +347,6 @@ class Program
     database.Questions.Add(new Question("מה תפקיד תאי הדם הלבנים?", "נשיאת חמצן", "הגנה מפני מחלות", "קרישת דם", "הובלת סוכר", 2));
     database.Questions.Add(new Question("איזו מדידה משתמשת ביחידת ניוטון?", "מהירות", "מסה", "כוח", "לחץ", 3));
     database.Questions.Add(new Question("איזה סוג חומר אינו מוליך חשמל?", "מתכת", "פלסטיק", "מים", "אלומיניום", 2));
-
-
-
-
-
-
-
 
 
 
