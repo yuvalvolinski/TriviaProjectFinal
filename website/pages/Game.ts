@@ -28,6 +28,8 @@ let ans2 = document.getElementById("ans2") as HTMLDivElement;
 let ans3 = document.getElementById("ans3") as HTMLDivElement;
 let ans4 = document.getElementById("ans4") as HTMLDivElement;
 
+
+
 let timeLeft = 30; 
 let lastAnsTime = 30; 
 const timerElement = document.getElementById("timer") as HTMLDivElement;
@@ -49,6 +51,12 @@ const countdown = setInterval(() => {
   if (timeLeft <= 0) {
     clearInterval(countdown);
     timerElement.textContent = "הזמן תם!";
+
+    ans1.style.pointerEvents = "none";
+    ans2.style.pointerEvents = "none";
+    ans3.style.pointerEvents = "none";
+    ans4.style.pointerEvents = "none";
+
     getResult();
 
     
@@ -85,8 +93,9 @@ getQuestion();
 
 async function getResult() {
   let result = await send("GetResult", localStorage.getItem("GameId")) as Game ;
-  console.log("Gscore:" , result.GameScore)
   
+  
+
 }
 
 
