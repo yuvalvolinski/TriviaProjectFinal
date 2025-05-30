@@ -28,6 +28,16 @@ let ans2 = document.getElementById("ans2") as HTMLDivElement;
 let ans3 = document.getElementById("ans3") as HTMLDivElement;
 let ans4 = document.getElementById("ans4") as HTMLDivElement;
 
+let score = document.getElementById("score") as HTMLSpanElement;;
+let tQuest = document.getElementById("tQuest") as HTMLSpanElement;
+let rQuest = document.getElementById("rQuest") as HTMLSpanElement;
+let bExit = document.getElementById("bExit") as HTMLButtonElement;
+let md = document.getElementById("md") as HTMLDivElement;
+
+
+
+
+
 
 
 let timeLeft = 30; 
@@ -94,6 +104,11 @@ getQuestion();
 async function getResult() {
   let result = await send("GetResult", localStorage.getItem("GameId")) as Game ;
   
+  score.innerText = result.GameScore.toString();
+  tQuest.innerText  = result.TotalAnswers.toString();
+  rQuest.innerText = result.TotalCorrectAnswers.toString();
+
+  md.style.display = "block";
   
 
 }
@@ -148,3 +163,8 @@ async function  checkAnswer(ans: number)  {
       getQuestion();
 }
 
+bExit.onclick = function(){
+
+   location.href = "/website/pages/GameMain.html";
+
+}

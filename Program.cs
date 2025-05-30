@@ -263,8 +263,49 @@ class Program
             string gameId = request.GetBody<string>();
 
             var game = database.Games.Find(gameId);
+
+            response.Send(game);
+
+
+
+
+
+          }
+          else if (request.Path == "GetTopScores")
+          {
+            int topCount = 3;
+
+
+            var maxScoresByUser = database.Games
+                .GroupBy(g => g.UserId)
+                .Select(g => new
+                {
+                  UserId = g.Key,
+                  MaxScore = g.Max(x => x.GameScore)
+                });
+
+
+            var topUsers = maxScoresByUser
+                .OrderByDescending(g => g.MaxScore)
+                .Take(topCount);
+
+            var topUsernames = topUsers
+                .Join(database.Users,
+                      game => game.UserId,
+                      user => user.Id,
+                      (game, user) => new
+                      {
+                        Username = user.Username,
+                        MaxScore = game.MaxScore
+                      })
+                .ToList();
+
+
+
+
+            response.Send(topUsernames);
              
-             response.Send(game);
+             
 
 
                

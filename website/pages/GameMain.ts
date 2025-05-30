@@ -4,6 +4,12 @@ let bRules = document.getElementById("bRules")!;
 let bstart = document.getElementById("bstart")!;
 let Welc_text = document.getElementById("Welc_text")!;
 
+type TopUsers  = {
+    Username: string;
+    MaxScore: number;
+    
+}
+
 
 
 bLogOut.onclick = function () {
@@ -30,5 +36,8 @@ Welc_text.innerText = "Welcome Dear, "  +  NickName;
 
 console.log( "UserId= " + UserId);
 
+ let topUsers = await send("GetTopScores", "") as TopUsers ;
+
+ console.log("top p:" , topUsers)
 
 
