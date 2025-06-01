@@ -58,3 +58,39 @@ body {
     }
   }
   
+
+#topPlayers {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: #f0f8ff;
+  border-left: 3px solid #66ccff;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  direction: rtl;
+  overflow-y: auto;
+  box-sizing: border-box;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.1);
+}
+
+#topPlayers h3 {
+  text-align: center;
+  color: #005fa3;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.player {
+  display: flex;
+  justify-content: space-between;
+  background: #e6f0ff;
+  padding: 10px 15px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  color: #0077cc;
+  font-size: 18px;
+  user-select: none;
+}
