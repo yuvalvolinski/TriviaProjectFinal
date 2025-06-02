@@ -126,14 +126,18 @@ async function  getQuestion()  {
 
 
 
-
+let clickEnabled = true as boolean;
 
 async function  checkAnswer(ans: number)  {
 
       let ansTime = lastAnsTime - timeLeft;
       lastAnsTime = timeLeft;
 
-      console.log('ansTime', ansTime)
+      if (!clickEnabled){
+        return;
+      }
+      
+      clickEnabled = false;
   
       let correctAns = await send("CheckAnswer", [localStorage.getItem("GameId"), ans, ansTime] );
 
@@ -157,8 +161,21 @@ async function  checkAnswer(ans: number)  {
         ans4.innerText = ans4.innerText + " ✅";
 
       }
+
+      if(ans != correctAns){
+        let userAns = "ans" + ans.toString();
+        let userAnsDiv = document.getElementById(userAns) as HTMLDivElement;
+
+        userAnsDiv.innerText = userAnsDiv.innerText + " ❌";
+
+      }
+
+
+
       
       await new Promise(resolve => setTimeout(resolve, 1000));
+
+      clickEnabled = true;
 
       getQuestion();
 }

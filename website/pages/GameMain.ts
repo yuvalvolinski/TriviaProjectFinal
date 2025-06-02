@@ -38,11 +38,11 @@ Welc_text.innerText = "Welcome Dear, "  +  NickName;
 
 
 
-  let topUsers = await send("GetTopScores", "") as TopUsers;
-  let container = document.getElementById("topPlayers") as HTMLDivElement;
+  let topUsers = await send("GetTopScores", "") as TopUsers[];
+  let container = document.getElementById("topPlayers") as HTMLDivElement ;
   
 
   container.innerHTML = `<h3>🏆 השחקנים המובילים</h3>` + 
-    topUsers.slice(0,5).map(u => 
+    topUsers.map(u => 
       `<div class="player"><span>${u.Username}</span><span>${u.MaxScore}</span></div>`
     ).join('');
