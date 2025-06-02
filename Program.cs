@@ -273,7 +273,7 @@ class Program
           }
           else if (request.Path == "GetTopScores")
           {
-            int topCount = 3;
+            int topCount = 5;
 
 
             var maxScoresByUser = database.Games
