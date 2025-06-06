@@ -40,8 +40,8 @@ let md = document.getElementById("md") as HTMLDivElement;
 
 
 
-let timeLeft = 30; 
-let lastAnsTime = 30; 
+let timeLeft = 120; 
+let lastAnsTime = 120; 
 const timerElement = document.getElementById("timer") as HTMLDivElement;
 
 

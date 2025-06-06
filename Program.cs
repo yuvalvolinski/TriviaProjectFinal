@@ -339,7 +339,6 @@ class Program
       database.Questions.Add(new Question("היכן נמצאת העיר סידני?", "קנדה", "אוסטרליה", "אנגליה", "ארה\"ב", 2));
       database.Questions.Add(new Question("מהו ההר הגבוה בעולם?", "קילימנג'רו", "אוורסט", "הר אלברוס", "מונט בלאן", 2));
 
-
      database.Questions.Add(new Question("מי המציא את פייסבוק?", "סטיב ג'ובס", "אילון מאסק", "מארק צוקרברג", "ביל גייטס", 3)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי שיחק את הדמות של 'הארי פוטר' בסדרת הסרטים?", "אלייז'ה ווד", "דניאל רדקליף", "רופרט גרינט", "טום הולנד", 2)); // אנשים (אישיות)
      database.Questions.Add(new Question("מי היה דובר צהל בשבעה באוקטובר?", "בנימין נתניהו", "בני גנץ ", "דניאל הגרי", "רוני גמזו", 3)); // אנשים (אישיות)
@@ -375,11 +374,12 @@ class Program
     database.Questions.Add(new Question("אם צ'פופו שותה כל יום קולה שמחירה 7 שקלים. כמה הוא משלם כסף על קולה בשבוע?", " $ 18", "45 שקלים", " $ 41", "49 שקלים", 4));
     database.Questions.Add(new Question("א", " $ 18", "45 שקלים", " $ 41", "49 שקלים", 4));
     database.Questions.Add(new Question("מה כבד יותר – קילוגרם ברזל או קילוגרם נוצות?", "ברזל", "נוצות", "שניהם שוקלים אותו דבר", "תלוי בלחות", 3));
-    database.Questions.Add(new Question("כמה פעמים אפשר לחסר את 10 מהמספר 100?", "10", "אחת", "100", "אינסוף", 2));
     database.Questions.Add(new Question("אני גבוה כשאני צעיר ונמוך כשאני זקן. מה אני?", "אדם", "עץ", "נר", "כלב", 3));
     database.Questions.Add(new Question("מה עולה אך אף פעם לא יורד?", "טמפרטורה", "עץ", "גיל", "שעון", 3));
     database.Questions.Add(new Question("מה תמיד בא אך אף פעם לא מגיע?", "מחר", "אתמול", "רוח", "ענן", 1));
-
+    database.Questions.Add(new Question("מהו השורש הריבועי של 81?", "8", "9", "7", "6", 2));
+    database.Questions.Add(new Question("מהו סכם זוויות במשולש?", "180", "360", "270", "420", 2));
+    database.Questions.Add(new Question("באיזה מרובע מבין הבאים, כל הצלעות שוות?", "דלתון", "מעויין", "מלבן", "טרפז", 2));
 
 
     database.Questions.Add(new Question("מהו יסוד כימי שמספרו האטומי הוא 1?", "חמצן", "מימן", "הליום", "פחמן", 2));
@@ -390,7 +390,7 @@ class Program
     database.Questions.Add(new Question("מהו מצב הצבירה של מים בטמפרטורת החדר?", "מוצק", "נוזל", "גז", "פלזמה", 2));
     database.Questions.Add(new Question("מהו כוכב הלכת הגדול ביותר במערכת השמש?", "שבתאי", "מאדים", "צדק", "נפטון", 3));
     database.Questions.Add(new Question("איזו יחידה מודדת זרם חשמלי?", "ואט", "וולט", "אמפר", "אוהם", 3));
-    database.Questions.Add(new Question("מהו שם תהליך הפקת האנרגיה בצמחים?", "הטמעה", "פוטוסינתזה", "נשימה תאית", "תסיסה", 2));
+    database.Questions.Add(new Question("מהו שם תהליך הפקת האנרגיה בצמחים?", "התאדות", "פוטוסינתזה", "נשימה תאית", "תסיסה", 2));
     database.Questions.Add(new Question("מהו השם של תהליך מעבר מנוזל לגז?", "עיבוי", "המראה", "קִפאון", "אידוי", 4));
     database.Questions.Add(new Question("איזה איבר שולט על מערכת העצבים?", "לב", "ריאות", "כבד", "מוח", 4));
     database.Questions.Add(new Question("איך נקרא השכבה החיצונית של כדור הארץ?", "מגמה", "קרום", "גרעין", "מעטפת", 2));
@@ -398,6 +398,8 @@ class Program
     database.Questions.Add(new Question("מה תפקיד תאי הדם הלבנים?", "נשיאת חמצן", "הגנה מפני מחלות", "קרישת דם", "הובלת סוכר", 2));
     database.Questions.Add(new Question("איזו מדידה משתמשת ביחידת ניוטון?", "מהירות", "מסה", "כוח", "לחץ", 3));
     database.Questions.Add(new Question("איזה סוג חומר אינו מוליך חשמל?", "מתכת", "פלסטיק", "מים", "אלומיניום", 2));
+    database.Questions.Add(new Question("כמה קילוגרם יש בטון?", "100", "10", "1000", "500", 3));
+
 
     database.Questions.Add(new Question("כמה שחקנים יש בקבוצת כדורגל על המגרש?", "10", "11", "12", "9", 2));
     database.Questions.Add(new Question("מי נחשב לגדול שחקני הכדורגל בכל הזמנים?", "פלה", "מסי", "רונאלדו", "מראדונה", 2));
@@ -406,7 +408,6 @@ class Program
     database.Questions.Add(new Question("מהו השיא העולמי בריצת 100 מטר?", "9.58 שניות", "10.01 שניות", "9.89 שניות", "9.63 שניות", 1));
     database.Questions.Add(new Question("איזה כדור משמש במשחק טניס?", "כדור אדום", "כדור צהוב", "כדור לבן", "כדור כחול", 2));
     database.Questions.Add(new Question("מהו שם המועדון של ליאו מסי ב-2023?", "ברצלונה", "פריז סן ז'רמן", "אינטר מיאמי", "יובנטוס", 3));
-
 
     database.Questions.Add(new Question("מאיזה מדינה מגיע הסושי?", "סין", "יפן", "קוריאה", "תאילנד", 2));
     database.Questions.Add(new Question("איזה מרכיב עיקרי יש בגואקמולי?", "עגבנייה", "מלפפון", "אבוקדו", "חציל", 3));
@@ -434,7 +435,6 @@ class Program
     database.Questions.Add(new Question("מה פירוש המילה 'hallo' בגרמנית?", "שלום", "תודה", "ביי", "בבקשה", 1));
 
     database.Questions.Add(new Question("🐍 + 🍎 מה הסיפור שמאחורי האימוג'ים האלה?", "הבריאה", "אדם וחוה", "גן עדן", "נחש ותפוח", 2));
-    database.Questions.Add(new Question("🕰️ + 👨‍💼 + 💼 מייצג את מה?", "עבודה בזמן", "פגישה חשובה", "איש עסקים", "שעון מעורר", 3));
     database.Questions.Add(new Question("🐝 + 🍯 + 🍞 מסמל?", "דבורה אוכלת דבש", "ארוחת בוקר מתוקה", "דבש על לחם", "פרחים ודבש", 3));
     database.Questions.Add(new Question("🌧️ + 🌈 מייצג?", "גשם וסופה", "גשם וקשת בענן", "רוח סוערת", "שמש וחוף", 2));
     database.Questions.Add(new Question("👀 + 💡 משמעות?", "רעיונות חדשים", "להביט באור", "חשיבה", "תצפית", 1));
@@ -445,7 +445,28 @@ class Program
     database.Questions.Add(new Question("🍎 + 👨‍🏫 + 📚 מה זה?", "אוכל בבית ספר", "מחנך ואוכל", "בית ספר", "למידה", 4));
     database.Questions.Add(new Question("🌍 + 🌱 + 💧 מה מסמל?", "הגנה על הסביבה", "כדור הארץ", "מים וצמחים", "אקולוגיה", 1));
     database.Questions.Add(new Question("⌛ + 🚶‍♂️ + 🛤️ מה זה?", "זמן ללכת", "מסלול ארוך", "ריצה נגד הזמן", "מסע בזמן", 4));
-    database.Questions.Add(new Question("⌛ + 🚶‍♂️ + 🛤️ מה זה?", "זמן ללכת", "מסלול ארוך", "ריצה נגד הזמן", "מסע בזמן", 4));
+    database.Questions.Add(new Question("🙊 + 💬 מה זה?", "לא מדבר", "שומר סוד", "שקט שווה זהב", "מילה אסורה", 2));
+
+    database.Questions.Add(new Question("מהי העיר הצפונית ביותר בישראל?", "מטולה", "נהריה", "צפת", "חיפה", 1));
+    database.Questions.Add(new Question("מהי חברת התעופה הלאומית של ישראל?", "ישראייר", "אל על", "ארקיע", "ריינאייר", 2));
+    database.Questions.Add(new Question("באיזו חברה טסים באירופה לרוב בטיסות זולות?", "ישראייר", "ארקיע", "ריינאייר", "סוויס", 3));
+    database.Questions.Add(new Question("באיזה אזור נמצא ים המלח?", "הגליל", "הנגב", "הבקעה", "הערבה", 4));
+    database.Questions.Add(new Question("באיזה אזור נמצא החרמון?", "הרי ירושלים", "הגליל העליון", "רמת הגולן", "הרי יהודה", 3));
+    database.Questions.Add(new Question("באיזה ים נמצאת העיר אילת?", "הים התיכון", "הים האדום", "ים המלח", "הים השחור", 2));
+    database.Questions.Add(new Question("מהו המקום הנמוך ביותר בישראל?", "אילת", "הכנרת", "ים המלח", "הירדן", 3));
+    database.Questions.Add(new Question("באיזה חבל ארץ נמצא הכנרת?", "הגליל התחתון", "הגליל העליון", "העמקים", "הגולן", 1));
+    database.Questions.Add(new Question("מהו חבל הארץ הדרומי ביותר בישראל?", "ערבה", "נגב", "אילת", "בקעה", 2));
+    database.Questions.Add(new Question("מהו חבל ארץ בה בה נמצאת אשקלון??", "ערבה", "נגב", "שומרון", "לכיש", 4));
+
+
+
+
+
+  
+
+
+
+
 
 
 
