@@ -16,7 +16,7 @@ class Program
     Console.WriteLine($"Main Page: http://localhost:{port}/website/pages/main.html");
 
     var database = new Database();
-    database.Database.EnsureCreated();
+    database.Database.EnsureCreated(); 
 
     FillQuestions(database);
 
@@ -61,15 +61,12 @@ class Program
               response.Send("invalid");
 
             }
-
             else
             {
               var userId = Guid.NewGuid().ToString();
               database.Users.Add(new User(userId, NickName, Password));
               database.SaveChanges();
               response.Send(userId);
-
-
 
 
             }
@@ -101,7 +98,7 @@ class Program
 
 
           }
-          else if (request.Path == "StartGame")
+          else if (request.Path == "StartGame") //יצירת רשומה חדשה בטבלת משחקים
           {
 
             string userId = request.GetBody<string>();
@@ -122,13 +119,13 @@ class Program
             int currentQuestion;
             string choseGameId = "";
 
-            var game = database.Games.Find(gameId)!;
+            var game = database.Games.Find(gameId)!; //מחזיר את כל הרשומה של המשחק
 
 
             string gameUsedQuestions = game.UsedQuestions;
             List<int> usedQuestions = new List<int>();
 
-            if (gameUsedQuestions != null && gameUsedQuestions != "")
+            if (gameUsedQuestions != null && gameUsedQuestions != "") //עבור שאלה ראשונה
             {
               usedQuestions = gameUsedQuestions
                .Split(',', StringSplitOptions.RemoveEmptyEntries)
@@ -152,13 +149,13 @@ class Program
             {
               currentQuestion = questions[i].Id;
 
-              if (!usedQuestions.Contains(currentQuestion))
+              if (!usedQuestions.Contains(currentQuestion)) //מוסיפים לרשימה של שאלות הנותרות, במקרה ולא קיימת ברשימת UsedQ
               {
                 availableQuestions.Add(questions[i]);
               }
 
 
-            }
+            }//צובר את כל השאלות שעוד לא נשאלו
 
             int randomQuestion;
 
@@ -170,7 +167,8 @@ class Program
             {
               gameUsedQuestions = gameUsedQuestions + ",";
 
-            }
+            } //מוסיפים שאלה שנבחרה לרשימת שאלות שנשאלו
+
             gameUsedQuestions = gameUsedQuestions + choseGameId;
             game.UsedQuestions = gameUsedQuestions;
             database.SaveChanges();
@@ -250,7 +248,7 @@ class Program
 
 
           }
-          else if (request.Path == "GetResult")
+          else if (request.Path == "GetResult")  //בסוף המשחק - החזרת תוצאות
           {
             string gameId = request.GetBody<string>();
 
@@ -268,7 +266,7 @@ class Program
             int topCount = 5;
 
 
-            var maxScoresByUser = database.Games
+            var maxScoresByUser = database.Games // התוצאה הכי טובה של כל שחקן בודד
                 .GroupBy(g => g.UserId)
                 .Select(g => new
                 {
@@ -278,8 +276,8 @@ class Program
 
 
             var topUsers = maxScoresByUser
-                .OrderByDescending(g => g.MaxScore)
-                .Take(topCount);
+                .OrderByDescending(g => g.MaxScore) //מיון לפי גבוה לנמוך
+                .Take(topCount); //כמות
 
             var topUsernames = topUsers
                 .Join(database.Users,
@@ -457,26 +455,7 @@ class Program
     database.Questions.Add(new Question("באיזה חבל ארץ נמצא הכנרת?", "הגליל התחתון", "הגליל העליון", "העמקים", "הגולן", 1));
     database.Questions.Add(new Question("מהו חבל הארץ הדרומי ביותר בישראל?", "ערבה", "נגב", "אילת", "בקעה", 2));
     database.Questions.Add(new Question("מהו חבל ארץ בה בה נמצאת אשקלון??", "ערבה", "נגב", "שומרון", "לכיש", 4));
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    database.Questions.Add(new Question("מהי הציפור הלאומית של ישראל?", "דרור", "עורב", "נחליאלי", "דוכיפת", 4));
 
 
 

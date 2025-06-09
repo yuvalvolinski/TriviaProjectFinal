@@ -93,7 +93,7 @@ ans4.onclick  = function () {
 
 
 if (localStorage.getItem("GameId") === null) {
-    let gameId = await send("StartGame", UserId);
+    let gameId = await send("StartGame", UserId); //StartGame
 
     localStorage.setItem("GameId" ,  gameId )
 }
@@ -173,9 +173,9 @@ async function  checkAnswer(ans: number)  {
 
 
       
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      await new Promise(resolve => setTimeout(resolve, 1000)); //delay after answer
 
-      clickEnabled = true;
+      clickEnabled = true; //אי אפשר לעשות פעמיים קליק עד שנקבל תשובה
 
       getQuestion();
 }

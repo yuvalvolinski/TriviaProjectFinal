@@ -43,6 +43,6 @@ Welc_text.innerText = "Welcome Dear, "  +  NickName;
   
 
   container.innerHTML = `<h3>🏆 השחקנים המובילים</h3>` + 
-    topUsers.map(u => 
+    topUsers.map(u => //עובר על כל הרשומות שהתקבלו מהשרת ומוסיף שורה בטבלת שחקנים מובילים, ללולאה
       `<div class="player"><span>${u.Username}</span><span>${u.MaxScore}</span></div>`
-    ).join('');
+    ).join(''); //מחבר את כל השורות
