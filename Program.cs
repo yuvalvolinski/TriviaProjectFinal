@@ -78,7 +78,7 @@ class Program
 
             var user = database.Users
 
-              .FirstOrDefault(user => user.Username.ToLower() == NickName.ToLower() && user.Password == Password);
+              .FirstOrDefault(user => user.Username.ToLower() == NickName.ToLower() && user.Password == Password); // מחזירה את הפריט הראשון העונה על התנאי
 
 
 
