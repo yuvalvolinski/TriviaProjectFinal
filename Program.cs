@@ -267,7 +267,7 @@ class Program
 
 
             var maxScoresByUser = database.Games // התוצאה הכי טובה של כל שחקן בודד
-                .GroupBy(g => g.UserId)
+                .GroupBy(g => g.UserId)//קיבוץ לפי userId
                 .Select(g => new
                 {
                   UserId = g.Key,
