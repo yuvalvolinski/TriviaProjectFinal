@@ -248,7 +248,7 @@ class Program
 
 
           }
-          else if (request.Path == "GetResult")  //בסוף המשחק - החזרת תוצאות
+          else if (request.Path == "GetResult") 
           {
             string gameId = request.GetBody<string>();
 
