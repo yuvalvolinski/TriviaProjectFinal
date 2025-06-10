@@ -12,7 +12,7 @@ body {
   }
 
   body {
-    background-image: url('Trivia_GameP.png'); /* ודא שהשם נכון */
+    background-image: url('Trivia_GameP.png'); 
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 100% 100%;
@@ -36,45 +36,45 @@ body {
   font-weight: bold;
   color: white;
   border-radius: 10px;
-  cursor: pointer; /* הופך את האלמנט ל"לחיץ" */
+  cursor: pointer; 
   transition: transform 0.2s, opacity 0.2s;
 }
 
-/* אפקט ריחוף */
+
 .answer:hover {
   transform: scale(1.05);
   opacity: 0.9;
 }
 
-/* אפקט לחיצה */
+
 .answer:active {
   transform: scale(0.98);
 }
 
   
   .answer.blue {
-    top: 49%; /* היה 46% */
+    top: 49%; 
     left: 22%;
     background-color: rgba(0, 153, 255, 0.6);
     border: 2px solid #00ccff;
   }
   
   .answer.green {
-    top: 49%; /* היה 46% */
+    top: 49%; 
     left: 56%;
     background-color: rgba(0, 255, 102, 0.6);
     border: 2px solid #00ff66;
   }
   
   .answer.red {
-    top: 67%; /* היה 61% */
+    top: 67%; 
     left: 22%;
     background-color: rgba(255, 51, 51, 0.6);
     border: 2px solid #ff3333;
   }
   
   .answer.yellow {
-    top: 67%; /* היה 61% */
+    top: 67%; 
     left: 56%;
     background-color: rgba(255, 255, 0, 0.6);
     border: 2px solid #ffff00;
@@ -82,7 +82,7 @@ body {
 
   .question {
     position: absolute;
-    top: 25%; /* ממקם בגובה המסגרת הלבנה */
+    top: 25%; 
     left: 50%;
     transform: translate(-50%, -50%);
     width: 60%;

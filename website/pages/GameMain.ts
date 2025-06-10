@@ -29,9 +29,9 @@ bstart.onclick = function () {
 }
 
 
+
 let NickName = localStorage.getItem("NickName");
 let UserId = localStorage.getItem("UserId");
-
 Welc_text.innerText = "Welcome Dear, "  +  NickName;
 
 
